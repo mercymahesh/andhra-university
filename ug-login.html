@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AU EMS - UG Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #d8e9f7;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #155fa0;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Layout */
+    .container {
+      display: flex;
+      justify-content: center;
+      margin: 30px auto;
+      max-width: 1100px;
+      gap: 20px;
+    }
+
+    /* Notifications */
+    .notifications {
+      background: white;
+      padding: 15px;
+      flex: 1;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      overflow-y: auto;
+      max-height: 400px;
+    }
+    .notifications h3 {
+      margin: 0 0 10px;
+      padding: 10px;
+      background: #e6f2ff;
+      border-bottom: 1px solid #ccc;
+      font-size: 16px;
+    }
+    .notifications p {
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    /* Login Card */
+    .login-box {
+      background: white;
+      width: 380px;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #155fa0;
+    }
+    .login-box label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    /* Captcha */
+    .captcha-box {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .captcha {
+      font-weight: bold;
+      font-size: 18px;
+      background: #f4f4f4;
+      border: 1px dashed #aaa;
+      padding: 10px;
+      width: 100px;
+      text-align: center;
+      margin-right: 10px;
+      user-select: none;
+    }
+    .refresh-btn {
+      cursor: pointer;
+      background: #155fa0;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background: #155fa0;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .login-btn:hover {
+      opacity: 0.9;
+    }
+
+    .forgot {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .forgot a {
+      color: #155fa0;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .footer {
+      background: #155fa0;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-size: 13px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="index.html">SERVICES</a>
+    <a href="results.html">RESULTS</a>
+    <a href="pg-login.html" class="active">PG LOGIN</a>
+    <a href="ug-login.html">UG LOGIN</a>
+    <a href="revaluation.html">REVALUATION</a>
+    <a href="challan-payment.html">CHALLAN PAYMENT</a>
+    <a href="tuition-fee.html">TUITION FEE PAYMENT</a>
+    <a href="contact.html">CONTACT US</a>
+  </div>
+
+  <!-- Content -->
+  <div class="container">
+    <!-- Notifications -->
+    <div class="notifications">
+      <h3>Notifications</h3>
+      <p>📢 UG III SEMESTER - Regular (2024 AB) and Supplementary (2020-23 AB)</p>
+      <p>📢 V SEMESTER - Regular (2023 AB) and Supplementary (2020-22 AB)</p>
+      <p style="color:green;">Without Fine Last Date: (17-09-2025)</p>
+      <p style="color:red;">With Fine 2000/- Last Date: (22-09-2025)</p>
+      <p style="color:red;">With Fine + Additional 100/- Per Day: (25-09-2025)</p>
+      <p style="color:green;">Challan Payment Last Date: (26-09-2025)</p>
+    </div>
+
+    <!-- Login Box -->
+    <div class="login-box">
+      <h2>ANDHRA UNIVERSITY <br> UG College Login</h2>
+
+      <label>Username</label>
+      <input type="text" placeholder="Enter Username">
+
+      <label>Password</label>
+      <input type="password" placeholder="Enter Password">
+
+      <label>Verification Code</label>
+      <div class="captcha-box">
+        <div class="captcha" id="captcha"></div>
+        <button class="refresh-btn" onclick="generateCaptcha()">⟳</button>
+      </div>
+      <input type="text" id="captcha-input" placeholder="Enter Verification Code">
+
+      <button class="login-btn" onclick="validateCaptcha()">Login</button>
+      <div class="forgot"><a href="#">Forgot Password?</a></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Copyright © 2025 Andhra University. Developed by D Base Solutions Pvt. Ltd. |
+    For Support: 9394322301 / 9394322304
+  </div>
+
+  <!-- JS -->
+  <script>
+    function generateCaptcha() {
+      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+      let captcha = "";
+      for (let i = 0; i < 6; i++) {
+        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      document.getElementById("captcha").textContent = captcha;
+    }
+
+    function validateCaptcha() {
+      const entered = document.getElementById("captcha-input").value.trim();
+      const actual = document.getElementById("captcha").textContent.trim();
+      if (entered === actual) {
+        alert("Login Successful ✅");
+      } else {
+        alert("❌ Invalid Captcha. Please try again.");
+        generateCaptcha();
+      }
+    }
+
+    // Load first captcha
+    window.onload = generateCaptcha;
+  </script>
+</body>
+</html>
+
+    
+
+  
