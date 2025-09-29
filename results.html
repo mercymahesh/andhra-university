@@ -208,7 +208,7 @@ table th, table td {
     width: 100%;
     font-size: 12px;       /* even smaller font on phones */
   }
-
+}
   .results th, .results td,
   table th, table td {
     padding: 5px;
@@ -220,9 +220,10 @@ table th, table td {
     overflow-x: auto;
     white-space: nowrap;
   }
-}
-  .results {
-  display: none;  /* all result tables hidden initially */
+.results {
+  display: none;   /* hide tables until a subject is clicked */
+  width: 95%;
+  margin: 20px auto;
 }
   </style>
 </head>
@@ -270,6 +271,29 @@ table th, table td {
     <button class="btn education" onclick="showResults('education')">Education</button>
     <button class="btn ug" onclick="showResults('ug')">UG</button>
   </div>
+<!-- Results Container -->
+<div id="resultsContainer">
+  <!-- Engineering -->
+  <table class="results" id="engineering"> ... </table>
+
+  <!-- Arts -->
+  <table class="results" id="arts"> ... </table>
+
+  <!-- Science -->
+  <table class="results" id="science"> ... </table>
+
+  <!-- Law -->
+  <table class="results" id="law"> ... </table>
+
+  <!-- Pharmacy -->
+  <table class="results" id="pharmacy"> ... </table>
+
+  <!-- Education -->
+  <table class="results" id="education"> ... </table>
+
+  <!-- UG -->
+  <table class="results" id="ug"> ... </table>
+</div>
 
   <!-- Results Tables -->
   <!-- (all your tables kept exactly as before, skipping here for brevity but they are included in final code) -->
@@ -466,8 +490,8 @@ table th, table td {
     </td>
   </tr>
 </table>
-  
-<script>
+
+  <script>
     function showResults(sectionId) {
     // hide all tables
     document.querySelectorAll(".results").forEach(table => table.style.display = "none");
@@ -476,6 +500,22 @@ table th, table td {
     document.getElementById(sectionId).style.display = "table";
 }
   </script>
+
+<script>
+function showResults(sectionId) {
+  // Hide all tables
+  document.querySelectorAll(".results").forEach(table => {
+    table.style.display = "none";
+  });
+
+  // Show only the selected subject’s table
+  document.getElementById(sectionId).style.display = "table";
+
+  // Smooth scroll into view (like revaluation page behavior)
+  document.getElementById("resultsContainer").scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
   
 
   <!-- Other tables (arts, science, law, pharmacy, education, ug) are unchanged -->
@@ -517,7 +557,7 @@ table th, table td {
       document.getElementById("examTitle").innerText = examName;
       document.getElementById("captchaImage").src =
         "https://dummyimage.com/120x40/ddd/000&text=" + Math.floor(100000 + Math.random() * 900000);
-
+        
       document.querySelectorAll(".results").forEach(table => table.style.display = "none");
       document.querySelector(".btn-container").style.display = "none";
       document.querySelector(".note").style.display = "none";
@@ -606,5 +646,7 @@ table th, table td {
   </div>
 </body>
 </html>
+
+
 
 
