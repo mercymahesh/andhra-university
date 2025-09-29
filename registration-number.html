@@ -119,6 +119,50 @@
       }
     });
   </script>
+       <script>
+  {
+    // Get exam name from query string
+  const params = new URLSearchParams(window.location.search);
+  const examName = params.get("exam") || "Exam Result";
+  document.getElementById("examTitle").innerText = examName;
+  }
+  // Generate captcha
+  function refreshCaptcha() {
+    document.getElementById("captchaImage").src =
+      "https://dummyimage.com/120x40/ddd/000&text=" + Math.floor(100000 + Math.random() * 900000);
+  }
+  refreshCaptcha();
+
+  // Submit check
+  document.getElementById("submitBtn").addEventListener("click", function () {
+    let regNo = document.getElementById("regNo").value.trim();
+    let captchaInput = document.getElementById("captchaInput").value.trim();
+    let captchaText = document.getElementById("captchaImage").src.split("=")[1];
+    let errorBox = document.getElementById("errorBox");
+    errorBox.innerText = "";
+
+    if (regNo === "") {
+      errorBox.innerText = "⚠️ Please enter Registration Number";
+      return;
+    }
+    if (captchaInput === "") {
+      errorBox.innerText = "⚠️ Please enter Security Code";
+      return;
+    }
+    if (captchaInput !== captchaText) {
+      errorBox.innerText = "❌ Mismatch in Security Code";
+      refreshCaptcha();
+      return;
+    }
+
+    // Example validation
+    if (examName.includes("B.E.EEE EIGHTH SEMESTER") && regNo === "50928972014") {
+      window.location.href = "file:///E:/photoshop/mercy/mercy%20fourth%20year%20end.png";
+    } else {
+      errorBox.innerText = "❌ Invalid Registration Number";
+    }
+  });
+</script>
 
 </body>
 </html>
