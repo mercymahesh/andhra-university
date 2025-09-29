@@ -252,6 +252,9 @@ table th, table td {
     white-space: nowrap;
   }
 }
+.results {
+  display: none;   /* hide all tables by default */
+}
 
   </style>
 </head>
@@ -635,5 +638,20 @@ table th, table td {
   <div class="footer">
     Designed, Developed & Maintained by AU Computer Centre, Andhra University | Copyright © 2025 - All Rights Reserved.
   </div>
+  <script>
+function showResults(sectionId) {
+  // Hide all tables
+  document.querySelectorAll(".results").forEach(table => {
+    table.style.display = "none";
+  });
+
+  // Show only the selected subject’s table
+  document.getElementById(sectionId).style.display = "table";
+
+  // Smooth scroll into view
+  document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
 </body>
 </html>
