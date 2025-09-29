@@ -25,6 +25,7 @@
   height: 50px;
   margin-right: 10px;
 }
+
     .header-text {
       flex: 1;
     }
@@ -38,7 +39,9 @@
     .header-right {
       font-size: 14px;
     }
-.navbar {
+
+    /* Navbar */
+    .navbar {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -48,8 +51,7 @@
   text-align: center;
   font-size: 14px;
 }
-    /* Navbar */
-    .navbar {
+.navbar {
       background: #f8f8f8;
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
@@ -63,6 +65,7 @@
       font-weight: bold;
       border-right: 1px solid #ccc;
     }
+
     .navbar a:last-child {
       border-right: none;
     }
@@ -140,45 +143,16 @@
     .show-btn:hover {
       background: #0d4473;
     }
-    /* Mobile adjustments */
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    text-align: center;
-    padding: 15px;
-  }
-
-  .header img {
-    margin-bottom: 10px;
-  }
-
-  .header-text h1 {
-    font-size: 18px;
-  }
-
-  .navbar a {
-    padding: 8px 10px;
-    font-size: 13px;
-  }
-
-  .content, .card, .login-box, .contact-box, .container {
-    width: 95% !important;
-    max-width: 100% !important;
-    margin: 10px auto;
-    padding: 15px;
-  }
-
-  .links {
-    grid-template-columns: 1fr; /* stack links instead of side by side */
-  }
-
-  table {
-    font-size: 12px;
-    display: block;
-    overflow-x: auto; /* make wide tables scrollable */
-  }
-}
-
+    .footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 13px;
+    }
   </style>
 </head>
 <body>
@@ -546,9 +520,14 @@
     }
   });
 </script>
-  
+  <!-- Footer -->
+  <div class="footer">
+    Designed, Developed & Maintained by AU Computer Centre, Andhra University | Copyright © 2025 - All Rights Reserved.
+  </div>
 </body>
 </html>
+</html>
+
 
 
 
