@@ -11,20 +11,18 @@
       background: #f1f1f1;
     }
 
+    /* Header */
     .header {
-  background: #155fa0;
-  color: white;
-  display: flex;
-  flex-wrap: wrap; /* allows wrapping on small screens */
-  align-items: center;
-  padding: 15px 20px; /* smaller padding */
-}
-
-.header img {
-  height: 50px;
-  margin-right: 10px;
-}
-
+      background: #155fa0;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 25px 200px;
+    }
+    .header img {
+      height: 60px;
+      margin-right: 0px;
+    }
     .header-text {
       flex: 1;
     }
@@ -41,16 +39,6 @@
 
     /* Navbar */
     .navbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.navbar a {
-  flex: 1 1 auto;  /* allow links to shrink/grow */
-  text-align: center;
-  font-size: 14px;
-}
-.navbar {
       background: #f8f8f8;
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
@@ -64,7 +52,6 @@
       font-weight: bold;
       border-right: 1px solid #ccc;
     }
-
     .navbar a:last-child {
       border-right: none;
     }
@@ -107,38 +94,26 @@
   .ug {background: #0066cc;}
   .btn:hover {opacity: 0.8;}
  
-    /* Compact table styles */
-.results-container {
-  width: 95%;
-  margin: 10px auto;
-  overflow-x: auto;   /* horizontal scroll if needed */
-}
-
-.results {
-  width: 100%;
-  font-size: 13px;
-  border-collapse: collapse;
-  display: none;      /* hide all by default */
-}
-
-.results th, .results td {
-  padding: 6px 8px;
-  border: 1px solid #ddd;
-}
-
-@media (max-width: 768px) {
-  .results-container {
-    width: 100%;
-  }
-
-  .results {
-    font-size: 12px;
-  }
-
-  .results th, .results td {
-    padding: 5px;
-  }
-}
+    /* Table */
+    .results {
+      width: 80%;
+      margin: 20px auto;
+      background: white;
+      border-collapse: collapse;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      display: none; /* hidden by default */
+    }
+    .results th, .results td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      font-size: 14px;
+    }
+    .results th {
+      background: #155fa0;
+      color: white;
+      text-align: center;
+    }
     .results td:last-child {
       text-align: center;
     }
@@ -164,81 +139,6 @@
       width: 100%;
       font-size: 13px;
     }
-    /* Mobile adjustments */
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    text-align: center;
-    padding: 15px;
-  }
-
-  .header img {
-    margin-bottom: 10px;
-  }
-
-  .header-text h1 {
-    font-size: 18px;
-  }
-
-  .navbar a {
-    padding: 8px 10px;
-    font-size: 13px;
-  }
-
-  .content, .card, .login-box, .contact-box, .container {
-    width: 95% !important;
-    max-width: 100% !important;
-    margin: 10px auto;
-    padding: 15px;
-  }
-
-  .links {
-    grid-template-columns: 1fr; /* stack links instead of side by side */
-  }
-
-  table {
-    font-size: 12px;
-    display: block;
-    overflow-x: auto; /* make wide tables scrollable */
-  }
-}
-   /* Compact table styles */
-.results, table {
-  width: 95%;              /* slightly smaller than full width */
-  margin: 10px auto;
-  font-size: 13px;         /* smaller text */
-  border-collapse: collapse;
-}
-
-.results th, .results td,
-table th, table td {
-  padding: 6px 8px;        /* reduce padding */
-}
-
-@media (max-width: 768px) {
-  .results, table {
-    width: 100%;
-    font-size: 12px;       /* even smaller font on phones */
-  }
-
-  .results th, .results td,
-  table th, table td {
-    padding: 5px;
-  }
-
-  /* Allow horizontal scroll if needed */
-  .results, table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-}
-.results, table {
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
   </style>
 </head>
 <body>
@@ -523,7 +423,7 @@ table th, table td {
       document.getElementById("examTitle").innerText = examName;
       document.getElementById("captchaImage").src =
         "https://dummyimage.com/120x40/ddd/000&text=" + Math.floor(100000 + Math.random() * 900000);
-        
+
       document.querySelectorAll(".results").forEach(table => table.style.display = "none");
       document.querySelector(".btn-container").style.display = "none";
       document.querySelector(".note").style.display = "none";
@@ -610,21 +510,9 @@ table th, table td {
   <div class="footer">
     Designed, Developed & Maintained by AU Computer Centre, Andhra University | Copyright © 2025 - All Rights Reserved.
   </div>
-  <script>
-function showResults(sectionId) {
-  // hide all tables
-  document.querySelectorAll(".results").forEach(table => {
-    table.style.display = "none";
-  });
-
-  // show only selected
-  document.getElementById(sectionId).style.display = "table";
-
-  // scroll smoothly to the selected table
-  document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
-}
-</script>
-
 </body>
 </html>
+
+
+
 
