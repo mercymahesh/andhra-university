@@ -221,8 +221,36 @@ table th, table td {
     white-space: nowrap;
   }
 }
-  .results {
-  display: none;  /* all result tables hidden initially */
+/* Compact table styles */
+.results, table {
+  width: 95%;              /* slightly smaller than full width */
+  margin: 10px auto;
+  font-size: 13px;         /* smaller text */
+  border-collapse: collapse;
+}
+
+.results th, .results td,
+table th, table td {
+  padding: 6px 8px;        /* reduce padding */
+}
+
+@media (max-width: 768px) {
+  .results, table {
+    width: 100%;
+    font-size: 12px;       /* even smaller font on phones */
+  }
+
+  .results th, .results td,
+  table th, table td {
+    padding: 5px;
+  }
+
+  /* Allow horizontal scroll if needed */
+  .results, table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 }
 
   </style>
@@ -469,9 +497,9 @@ table th, table td {
 </table>
 
   <script>
-    function showResults(sectionId) {
+   function showResults(sectionId) {
     // hide all tables
-    document.querySelectorAll(".results").forEach(table => table.style.display = "none");
+  document.querySelectorAll(".results").forEach(table => table.style.display = "none");
 
   // show only the clicked subject’s results
   document.getElementById(sectionId).style.display = "table";
@@ -607,24 +635,5 @@ table th, table td {
   <div class="footer">
     Designed, Developed & Maintained by AU Computer Centre, Andhra University | Copyright © 2025 - All Rights Reserved.
   </div>
-  <script>
-function showResults(sectionId) {
-  // Hide all tables
-  document.querySelectorAll(".results").forEach(table => {
-    table.style.display = "none";
-  });
-
-  // Show only the selected subject’s table
-  document.getElementById(sectionId).style.display = "table";
-
-  // Smooth scroll into view
-  document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
-}
-</script>
-
 </body>
 </html>
-
-
-
-
