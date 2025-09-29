@@ -6,232 +6,180 @@
   <title>AU EMS - Andhra University</title>
   <style>
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f1f1f1;
-    }
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f1f1;
+  }
 
-    /* Header */
-    .header {
-  background: #155fa0;
-  color: white;
-  display: flex;
-  flex-wrap: wrap; /* allows wrapping on small screens */
-  align-items: center;
-  padding: 15px 20px; /* smaller padding */
-}
-
-.header img {
-  height: 50px;
-  margin-right: 10px;
-}
-
-    .header-text {
-      flex: 1;
-    }
-    .header-text h1 {
-      margin: 0;
-      font-size: 22px;
-    }
-    .header-text small {
-      font-size: 12px;
-    }
-    .header-right {
-      font-size: 14px;
-    }
-
-    /* Navbar */
-    .navbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.navbar a {
-  flex: 1 1 auto;  /* allow links to shrink/grow */
-  text-align: center;
-  font-size: 14px;
-}
-.navbar {
-      background: #f8f8f8;
-      border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
-      text-align: center;
-    }
-    .navbar a {
-      display: inline-block;
-      padding: 10px 18px;
-      color: #333;
-      text-decoration: none;
-      font-weight: bold;
-      border-right: 1px solid #ccc;
-    }
-
-    .navbar a:last-child {
-      border-right: none;
-    }
-    .navbar a:hover {
-      background: #ddd;
-    }
-
-    /* Note */
-    .note {
-      text-align: center;
-      margin: 15px 0;
-      color: green;
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    /* Buttons */
-    .btn-container {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .btn {
-      display: inline-block;
-      margin: 8px;
-      padding: 10px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    /* Table */
-    .results {
-      width: 80%;
-      margin: 20px auto;
-      background: white;
-      border-collapse: collapse;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      display: none; /* hidden by default */
-    }
-    .results th, .results td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: left;
-      font-size: 14px;
-    }
-    .results th {
-      background: #155fa0;
-      color: white;
-      text-align: center;
-    }
-    .results td:last-child {
-      text-align: center;
-    }
-    .show-btn {
-      background: #155fa0;
-      color: white;
-      border: none;
-      padding: 5px 12px;
-      cursor: pointer;
-      border-radius: 3px;
-      font-size: 14px;
-    }
-    .show-btn:hover {
-      background: #0d4473;
-    }
-    /* Card */
-    .card {
-      max-width: 800px;
-      margin: 50px auto;
-      background: #fff;
-      padding: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      border-radius: 3px;
-    }
-    .card h2 {
-      margin-top: 0;
-      color: #337ab7;
-      font-size: 20px;
-    }
-    .card p {
-      font-size: 14px;
-      line-height: 1.5;
-      color: #333;
-    }
-    .mandatory {
-      color: red;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      padding: 8px 15px;
-      margin-top: 15px;
-      text-decoration: none;
-      border-radius: 3px;
-      font-size: 14px;
-    }
-    .btn-blue {
-      background: #337ab7;
-      color: #fff;
-    }
-    .btn-red {
-      background: #d9534f;
-      color: #fff;
-      float: right;
-    }
-
-    /* Footer */
-    .footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      font-size: 13px;
-    }
-    /* Mobile adjustments */
-@media (max-width: 768px) {
+  /* Header */
   .header {
-    flex-direction: column;
-    text-align: center;
-    padding: 15px;
+    background: #155fa0;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
   }
-
   .header img {
-    margin-bottom: 10px;
+    height: 50px;
+    margin-right: 10px;
   }
-
+  .header-text {
+    flex: 1;
+    min-width: 200px;
+  }
   .header-text h1 {
+    margin: 0;
     font-size: 18px;
   }
+  .header-text small {
+    font-size: 11px;
+  }
+  .header-right {
+    font-size: 13px;
+    text-align: right;
+    min-width: 120px;
+  }
 
+  /* Navbar */
+  .navbar {
+    background: #f8f8f8;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
   .navbar a {
-    padding: 8px 10px;
+    display: inline-block;
+    padding: 10px 14px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border-right: 1px solid #ccc;
+    font-size: 14px;
+  }
+  .navbar a:last-child {
+    border-right: none;
+  }
+  .navbar a:hover {
+    background: #ddd;
+  }
+
+  /* Note */
+  .note {
+    text-align: center;
+    margin: 10px 5px;
+    color: green;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  /* Buttons */
+  .btn-container {
+    text-align: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    margin: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .arts {background: #0080ff;}
+  .engineering {background: #00b050;}
+  .law {background: #00c0c0;}
+  .pharmacy {background: #ffc000;color: black;}
+  .science {background: #e74c3c;}
+  .education {background: #f39c12;}
+  .ug {background: #0066cc;}
+  .btn:hover {opacity: 0.8;}
+
+  /* Table wrapper for scroll */
+  .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin: 15px auto;
+  }
+  .results {
+    width: 100%;
+    min-width: 500px; /* allow scroll on small screens */
+    margin: 0 auto;
+    background: white;
+    border-collapse: collapse;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    display: none; /* hidden by default */
+  }
+  .results th, .results td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
     font-size: 13px;
   }
-
-  .content, .card, .login-box, .contact-box, .container {
-    width: 95% !important;
-    max-width: 100% !important;
-    margin: 10px auto;
-    padding: 15px;
+  .results th {
+    background: #155fa0;
+    color: white;
+    text-align: center;
+  }
+  .results td:last-child {
+    text-align: center;
+  }
+  .show-btn {
+    background: #155fa0;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 13px;
+  }
+  .show-btn:hover {
+    background: #0d4473;
   }
 
-  .links {
-    grid-template-columns: 1fr; /* stack links instead of side by side */
-  }
-
-  table {
+  /* Footer */
+  .footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 8px;
     font-size: 12px;
-    display: block;
-    overflow-x: auto; /* make wide tables scrollable */
   }
-}
 
-      </style>
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header {
+      padding: 10px;
+      flex-direction: column;
+      text-align: center;
+    }
+    .header img {
+      margin-bottom: 8px;
+    }
+    .header-right {
+      text-align: center;
+      margin-top: 8px;
+    }
+    .btn {
+      font-size: 13px;
+      padding: 6px 12px;
+    }
+    .note {
+      font-size: 12px;
+      padding: 0 10px;
+    }
+  }
+  </style>
 </head>
 <body>
+
   <!-- Header -->
   <div class="header">
     <img src="https://andhrauni-ac.in/img/au-big-logo.png" alt="AU Logo">
@@ -244,47 +192,262 @@
       ☎ 0891 - 284 4091
     </div>
   </div>
-    
 
-  <!-- Navbar -->
-  <div class="navbar">
-    <a href="index.html">SERVICES</a>
-    <a href="results.html">RESULTS</a>
-    <a href="pg-login.html" class="active">PG LOGIN</a>
-    <a href="ug-login.html">UG LOGIN</a>
-    <a href="revaluation.html">REVALUATION</a>
-    <a href="challan-payment.html">CHALLAN PAYMENT</a>
-    <a href="tuition-fee.html">TUITION FEE PAYMENT</a>
-    <a href="contact.html">CONTACT US</a>
-  </div>
-   <!-- Services Card -->
-  <div class="card">
-    <h2>University Services</h2>
-    <a href="#" class="btn btn-red">Admin Login 🔒</a>
-    <p>
-      The Candidates who wish to apply for Original Degree Certificates, Provisional Certificates, 
-      Individual Marks Memos, Consolidated Marks Memos, Migration Certificate, Rank Certificates, 
-      Revaluation Marks Memos, Genuineness Certificates and other relevant Certificates from 
-      Andhra University shall apply by paying the prescribed fees through Online mode for Undergraduate, 
-      Postgraduate and Professional Courses from below link.
-    </p>
-    <p class="mandatory">
-      Mandatory: Maintain high speed internet connection while applying for certificates. 
-      slow internet connection may responsible for transaction failure.
-    </p>
-    <a href="#" class="btn btn-blue">Apply Now ➜</a>
+<!-- Navbar -->
+<div class="navbar">
+  <a href="index.html">SERVICES</a>
+  <a href="results.html">RESULTS</a>
+  <a href="pg-login.html">PG LOGIN</a>
+  <a href="ug-login.html">UG LOGIN</a>
+  <a href="revaluation.html">REVALUATION</a>
+  <a href="challan-payment.html">CHALLAN PAYMENT</a>
+  <a href="tuition-fee.html">TUITION FEE PAYMENT</a>
+  <a href="contact.html">CONTACT US</a>
+</div>
+
+
+  <!-- Important Note -->
+  <div class="note">
+    Important Note: Please check/download/print your results within 30 days from result issue date. 
+    All the result(s) will appear upto 30 days from the release date.
   </div>
 
-  <!-- Footer -->
-  <div class="footer">
-    Designed, Developed &amp; Maintained by AU Computer Centre, Andhra University | 
-    Copyright © 2025 - All Rights Reserved.
+  <!-- Buttons -->
+  <div class="btn-container">
+    <button class="btn arts" onclick="showResults('arts')">Arts</button>
+    <button class="btn engineering" onclick="showResults('engineering')">Engineering</button>
+    <button class="btn law" onclick="showResults('law')">Law</button>
+    <button class="btn pharmacy" onclick="showResults('pharmacy')">Pharmacy</button>
+    <button class="btn science" onclick="showResults('science')">Science</button>
+    <button class="btn education" onclick="showResults('education')">Education</button>
+    <button class="btn ug" onclick="showResults('ug')">UG</button>
   </div>
 
-  </body>
+  <!-- Results Tables -->
+  <!-- (all your tables kept exactly as before, skipping here for brevity but they are included in final code) -->
+
+  <!-- Engineering -->
+  <!-- Engineering -->
+<table class="results" id="engineering">
+  <tr>
+    <th>S.No</th>
+    <th>Release Date</th>
+    <th>Result Name</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2025-09-18 10:48:39</td>
+    <td id="exam-1-name">
+      B.ARCH FIRST SEMESTER(1-1) REGULAR AND SUPPLEMENTARY EXAMINATIONS HELD IN MARCH 2025
+    </td>
+    <td>
+      <button class="show-btn" onclick="openResultForm(document.getElementById('exam-1-name').textContent)">
+        Show
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>2025-09-16 12:11:00</td>
+    <td id="exam-2-name">
+      M.SC COMPUTER SCIENCE FIRST SEMESTER(1-1) REVALUATION HELD IN FEBRUARY 2025
+    </td>
+    <td>
+      <button class="show-btn" onclick="openResultForm(document.getElementById('exam-2-name').textContent)">
+        Show
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>2025-09-16 11:47:52</td>
+    <td id="exam-3-name">
+      B.TECH,BTECH+MTECH FIFTH SEMESTER(3-1) REVALUATION(PHASE-I) HELD IN DECEMBER 2024
+    </td>
+    <td>
+      <button class="show-btn" onclick="openResultForm(document.getElementById('exam-3-name').textContent)">
+        Show
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>2025-09-12 15:07:53</td>
+    <td id="exam-4-name">
+      M.C.A FOURTH SEMESTER(2-2) REGULAR AND SUPPLEMENTARY EXAMINATIONS HELD IN AUGUST 2025
+    </td>
+    <td>
+      <button class="show-btn" onclick="openResultForm(document.getElementById('exam-4-name').textContent)">
+        Show
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>2025-09-10 15:07:53</td>
+    <td id="exam-5-name">
+      B.E.EEE EIGHTH SEMESTER(4-2) REGULAR AND SUPPLEMENTARY EXAMINATIONS HELD IN JULY 2025
+    </td>
+    <td>
+      <button class="show-btn" onclick="openResultForm(document.getElementById('exam-5-name').textContent)">
+        Show
+      </button>
+    </td>
+  </tr>
+</table>
+
+<!-- Arts -->
+<table class="results" id="arts">
+  <tr>
+    <th>S.No</th>
+    <th>Release Date</th>
+    <th>Result Name</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2025-09-10 11:30:00</td>
+    <td>B.A FIRST YEAR REGULAR EXAMINATIONS HELD IN MAY 2025</td>
+    <td>
+      <button class="show-btn" onclick="openResultForm('EXAM NAME')">Show</button>
+
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>2025-08-28 14:00:00</td>
+    <td>M.A ENGLISH SECOND SEMESTER REGULAR HELD IN JUNE 2025</td>
+    <td>
+      <button class="show-btn" onclick="openResultForm('EXAM NAME')">Show</button>
+
+    </td>
+  </tr>
+</table>
+
+<!-- Science -->
+<table class="results" id="science">
+  <tr>
+    <th>S.No</th>
+    <th>Release Date</th>
+    <th>Result Name</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2025-08-20 09:45:00</td>
+    <td>B.SC CHEMISTRY THIRD SEMESTER REGULAR HELD IN JUNE 2025</td>
+    <td>
+      <button class="show-btn" onclick="openResultForm('EXAM NAME')">Show</button>
+    </td>
+  </tr>
+</table>
+
+<!-- Law -->
+<table class="results" id="law">
+  <tr>
+    <th>S.No</th>
+    <th>Release Date</th>
+    <th>Result Name</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2025-08-15 16:10:00</td>
+    <td>LLB FIRST YEAR REGULAR HELD IN MAY 2025</td>
+    <td>
+      <button class="show-btn" onclick="openResultForm('EXAM NAME')">Show</button>
+
+    </td>
+  </tr>
+</table>
+
+<!-- Pharmacy -->
+<table class="results" id="pharmacy">
+  <tr>
+    <th>S.No</th>
+    <th>Release Date</th>
+    <th>Result Name</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2025-09-05 13:20:00</td>
+    <td>B.PHARMACY SECOND SEMESTER REGULAR HELD IN JULY 2025</td>
+    <td>
+      <button class="show-btn" onclick="openResultForm('EXAM NAME')">Show</button>
+
+    </td>
+  </tr>
+</table>
+
+<!-- Education -->
+<table class="results" id="education">
+  <tr>
+    <th>S.No</th>
+    <th>Release Date</th>
+    <th>Result Name</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2025-08-10 12:00:00</td>
+    <td>B.ED FIRST YEAR REGULAR HELD IN JUNE 2025</td>
+    <td>
+      <button class="show-btn" onclick="openResultForm('EXAM NAME')">Show</button>
+
+    </td>
+  </tr>
+</table>
+
+<!-- UG -->
+<table class="results" id="ug">
+  <tr>
+    <th>S.No</th>
+    <th>Release Date</th>
+    <th>Result Name</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2025-09-01 10:00:00</td>
+    <td>UG COMMON ENTRANCE RESULTS 2025</td>
+    <td>
+      <button class="show-btn" onclick="openResultForm('EXAM NAME')">Show</button>
+
+    </td>
+  </tr>
+</table>
+
+  
+
+  <!-- Other tables (arts, science, law, pharmacy, education, ug) are unchanged -->
+
+  <script>
+    function showResults(sectionId) {
+      document.querySelectorAll(".results").forEach(table => table.style.display = "none");
+      document.getElementById(sectionId).style.display = "table";
+    }
+</script>
+  <script>
+  function openResultForm(examId) {
+    let examName;
+
+    // If it's passed as an element id
+    if (document.getElementById(examId)) {
+      examName = document.getElementById(examId).textContent.trim();
+    } else {
+      // If it's passed as plain text
+      examName = examId.trim();
+    }
+
+    // Redirect to registration page with query param
+    window.location.href = "registration-number.html?exam=" + encodeURIComponent(examName);
+  }
+</script>
+
+</body>
 </html>
-
-
 
 
 
