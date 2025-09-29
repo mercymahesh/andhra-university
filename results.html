@@ -107,26 +107,38 @@
   .ug {background: #0066cc;}
   .btn:hover {opacity: 0.8;}
  
-    /* Table */
-    .results {
-      width: 80%;
-      margin: 20px auto;
-      background: white;
-      border-collapse: collapse;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      display: none; /* hidden by default */
-    }
-    .results th, .results td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: left;
-      font-size: 14px;
-    }
-    .results th {
-      background: #155fa0;
-      color: white;
-      text-align: center;
-    }
+    /* Compact table styles */
+.results-container {
+  width: 95%;
+  margin: 10px auto;
+  overflow-x: auto;   /* horizontal scroll if needed */
+}
+
+.results {
+  width: 100%;
+  font-size: 13px;
+  border-collapse: collapse;
+  display: none;      /* hide all by default */
+}
+
+.results th, .results td {
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+  .results-container {
+    width: 100%;
+  }
+
+  .results {
+    font-size: 12px;
+  }
+
+  .results th, .results td {
+    padding: 5px;
+  }
+}
     .results td:last-child {
       text-align: center;
     }
@@ -221,39 +233,10 @@ table th, table td {
     white-space: nowrap;
   }
 }
-/* Compact table styles */
 .results, table {
-  width: 95%;              /* slightly smaller than full width */
-  margin: 10px auto;
-  font-size: 13px;         /* smaller text */
-  border-collapse: collapse;
-}
-
-.results th, .results td,
-table th, table td {
-  padding: 6px 8px;        /* reduce padding */
-}
-
-@media (max-width: 768px) {
-  .results, table {
-    width: 100%;
-    font-size: 12px;       /* even smaller font on phones */
-  }
-
-  .results th, .results td,
-  table th, table td {
-    padding: 5px;
-  }
-
-  /* Allow horizontal scroll if needed */
-  .results, table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-}
-.results {
-  display: none;   /* hide all tables by default */
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
   </style>
@@ -499,17 +482,6 @@ table th, table td {
   </tr>
 </table>
 
-  <script>
-   function showResults(sectionId) {
-    // hide all tables
-  document.querySelectorAll(".results").forEach(table => table.style.display = "none");
-
-  // show only the clicked subject’s results
-  document.getElementById(sectionId).style.display = "table";
-}
-</script>
-
-
   
 
   <!-- Other tables (arts, science, law, pharmacy, education, ug) are unchanged -->
@@ -535,7 +507,7 @@ table th, table td {
         <label><b>Security Code *</b></label>
         <div style="display:flex; align-items:center;">
           <img id="captchaImage" src="" alt="Captcha" style="background:#eee; padding:6px; margin-right:10px; border:1px solid #ccc;">
-          <input type="text" id="captchaInput" style="flex:0; padding:8px; border:1px solid #ccc; border-radius:4px;">
+          <input type="text" id="captchaInput" style="flex:1; padding:8px; border:1px solid #ccc; border-radius:4px;">
         </div>
       </div>
 
@@ -640,18 +612,19 @@ table th, table td {
   </div>
   <script>
 function showResults(sectionId) {
-  // Hide all tables
+  // hide all tables
   document.querySelectorAll(".results").forEach(table => {
     table.style.display = "none";
   });
 
-  // Show only the selected subject’s table
+  // show only selected
   document.getElementById(sectionId).style.display = "table";
 
-  // Smooth scroll into view
+  // scroll smoothly to the selected table
   document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
 }
 </script>
 
 </body>
 </html>
+
