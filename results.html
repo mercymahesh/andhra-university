@@ -221,7 +221,9 @@ table th, table td {
     white-space: nowrap;
   }
 }
-
+  .results {
+  display: none;  /* all result tables hidden initially */
+}
   </style>
 </head>
 <body>
@@ -464,7 +466,16 @@ table th, table td {
     </td>
   </tr>
 </table>
+  
+<script>
+    function showResults(sectionId) {
+    // hide all tables
+    document.querySelectorAll(".results").forEach(table => table.style.display = "none");
 
+    // show only the clicked subject’s results
+    document.getElementById(sectionId).style.display = "table";
+}
+  </script>
   
 
   <!-- Other tables (arts, science, law, pharmacy, education, ug) are unchanged -->
@@ -595,4 +606,5 @@ table th, table td {
   </div>
 </body>
 </html>
+
 
