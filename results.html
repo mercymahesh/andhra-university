@@ -6,93 +6,96 @@
   <title>AU EMS - Andhra University</title>
   <style>
     body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f1f1f1;
-  }
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+    }
 
-  /* Header */
-  .header {
-    background: #155fa0;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    flex-wrap: wrap;
-  }
-  .header img {
-    height: 50px;
-    margin-right: 10px;
-  }
-  .header-text {
-    flex: 1;
-    min-width: 200px;
-  }
-  .header-text h1 {
-    margin: 0;
-    font-size: 18px;
-  }
-  .header-text small {
-    font-size: 11px;
-  }
-  .header-right {
-    font-size: 13px;
-    text-align: right;
-    min-width: 120px;
-  }
+    /* Header */
+    .header {
+  background: #155fa0;
+  color: white;
+  display: flex;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+  align-items: center;
+  padding: 15px 20px; /* smaller padding */
+}
 
-  /* Navbar */
-  .navbar {
-    background: #f8f8f8;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    text-align: center;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  .navbar a {
-    display: inline-block;
-    padding: 10px 14px;
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-    border-right: 1px solid #ccc;
-    font-size: 14px;
-  }
-  .navbar a:last-child {
-    border-right: none;
-  }
-  .navbar a:hover {
-    background: #ddd;
-  }
+.header img {
+  height: 50px;
+  margin-right: 10px;
+}
+    .header-text {
+      flex: 1;
+    }
+    .header-text h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+    .header-text small {
+      font-size: 12px;
+    }
+    .header-right {
+      font-size: 14px;
+    }
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.navbar a {
+  flex: 1 1 auto;  /* allow links to shrink/grow */
+  text-align: center;
+  font-size: 14px;
+}
+    /* Navbar */
+    .navbar {
+      background: #f8f8f8;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+    }
+    .navbar a {
+      display: inline-block;
+      padding: 10px 18px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      border-right: 1px solid #ccc;
+    }
+    .navbar a:last-child {
+      border-right: none;
+    }
+    .navbar a:hover {
+      background: #ddd;
+    }
 
-  /* Note */
-  .note {
-    text-align: center;
-    margin: 10px 5px;
-    color: green;
-    font-size: 13px;
-    font-weight: bold;
-  }
+    /* Note */
+    .note {
+      text-align: center;
+      margin: 15px 0;
+      color: green;
+      font-size: 14px;
+      font-weight: bold;
+    }
 
-  /* Buttons */
-  .btn-container {
-    text-align: center;
-    margin-top: 15px;
-    flex-wrap: wrap;
-  }
-  .btn {
-    display: inline-block;
-    margin: 6px;
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-  }
+    /* Buttons */
+    .btn-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-block;
+      margin: 8px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
   .arts {background: #0080ff;}
   .engineering {background: #00b050;}
   .law {background: #00c0c0;}
@@ -101,81 +104,80 @@
   .education {background: #f39c12;}
   .ug {background: #0066cc;}
   .btn:hover {opacity: 0.8;}
-
-  /* Table wrapper for scroll */
-  .table-wrapper {
-    width: 100%;
-    overflow-x: auto;
-    margin: 15px auto;
-  }
-  .results {
-    width: 100%;
-    min-width: 500px; /* allow scroll on small screens */
-    margin: 0 auto;
-    background: white;
-    border-collapse: collapse;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    display: none; /* hidden by default */
-  }
-  .results th, .results td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-    font-size: 13px;
-  }
-  .results th {
-    background: #155fa0;
-    color: white;
-    text-align: center;
-  }
-  .results td:last-child {
-    text-align: center;
-  }
-  .show-btn {
-    background: #155fa0;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 3px;
-    font-size: 13px;
-  }
-  .show-btn:hover {
-    background: #0d4473;
-  }
-
-  /* Footer */
-  .footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 8px;
-    font-size: 12px;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .header {
+ 
+    /* Table */
+    .results {
+      width: 80%;
+      margin: 20px auto;
+      background: white;
+      border-collapse: collapse;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      display: none; /* hidden by default */
+    }
+    .results th, .results td {
+      border: 1px solid #ddd;
       padding: 10px;
-      flex-direction: column;
+      text-align: left;
+      font-size: 14px;
+    }
+    .results th {
+      background: #155fa0;
+      color: white;
       text-align: center;
     }
-    .header img {
-      margin-bottom: 8px;
-    }
-    .header-right {
+    .results td:last-child {
       text-align: center;
-      margin-top: 8px;
     }
-    .btn {
-      font-size: 13px;
-      padding: 6px 12px;
+    .show-btn {
+      background: #155fa0;
+      color: white;
+      border: none;
+      padding: 5px 12px;
+      cursor: pointer;
+      border-radius: 3px;
+      font-size: 14px;
     }
-    .note {
-      font-size: 12px;
-      padding: 0 10px;
+    .show-btn:hover {
+      background: #0d4473;
     }
+    /* Mobile adjustments */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
   }
+
+  .header img {
+    margin-bottom: 10px;
+  }
+
+  .header-text h1 {
+    font-size: 18px;
+  }
+
+  .navbar a {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .content, .card, .login-box, .contact-box, .container {
+    width: 95% !important;
+    max-width: 100% !important;
+    margin: 10px auto;
+    padding: 15px;
+  }
+
+  .links {
+    grid-template-columns: 1fr; /* stack links instead of side by side */
+  }
+
+  table {
+    font-size: 12px;
+    display: block;
+    overflow-x: auto; /* make wide tables scrollable */
+  }
+}
   </style>
 </head>
 <body>
@@ -546,6 +548,7 @@
   
 </body>
 </html>
+
 
 
 
