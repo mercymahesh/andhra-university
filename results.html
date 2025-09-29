@@ -208,7 +208,7 @@ table th, table td {
     width: 100%;
     font-size: 12px;       /* even smaller font on phones */
   }
-}
+
   .results th, .results td,
   table th, table td {
     padding: 5px;
@@ -220,11 +220,11 @@ table th, table td {
     overflow-x: auto;
     white-space: nowrap;
   }
-.results {
-  display: none;   /* hide tables until a subject is clicked */
-  width: 95%;
-  margin: 20px auto;
 }
+  .results {
+  display: none;  /* all result tables hidden initially */
+}
+
   </style>
 </head>
 <body>
@@ -473,25 +473,11 @@ table th, table td {
     // hide all tables
     document.querySelectorAll(".results").forEach(table => table.style.display = "none");
 
-    // show only the clicked subject’s results
-    document.getElementById(sectionId).style.display = "table";
-}
-  </script>
-
-<script>
-function showResults(sectionId) {
-  // Hide all tables
-  document.querySelectorAll(".results").forEach(table => {
-    table.style.display = "none";
-  });
-
-  // Show only the selected subject’s table
+  // show only the clicked subject’s results
   document.getElementById(sectionId).style.display = "table";
-
-  // Smooth scroll into view (like revaluation page behavior)
-  document.getElementById("resultsContainer").scrollIntoView({ behavior: "smooth" });
 }
 </script>
+
 
   
 
@@ -621,6 +607,21 @@ function showResults(sectionId) {
   <div class="footer">
     Designed, Developed & Maintained by AU Computer Centre, Andhra University | Copyright © 2025 - All Rights Reserved.
   </div>
+  <script>
+function showResults(sectionId) {
+  // Hide all tables
+  document.querySelectorAll(".results").forEach(table => {
+    table.style.display = "none";
+  });
+
+  // Show only the selected subject’s table
+  document.getElementById(sectionId).style.display = "table";
+
+  // Smooth scroll into view
+  document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
 </body>
 </html>
 
