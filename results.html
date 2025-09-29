@@ -13,16 +13,18 @@
 
     /* Header */
     .header {
-      background: #155fa0;
-      color: white;
-      display: flex;
-      align-items: center;
-      padding: 25px 200px;
-    }
-    .header img {
-      height: 60px;
-      margin-right: 0px;
-    }
+  background: #155fa0;
+  color: white;
+  display: flex;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+  align-items: center;
+  padding: 15px 20px; /* smaller padding */
+}
+
+.header img {
+  height: 50px;
+  margin-right: 10px;
+}
     .header-text {
       flex: 1;
     }
@@ -36,7 +38,16 @@
     .header-right {
       font-size: 14px;
     }
-
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.navbar a {
+  flex: 1 1 auto;  /* allow links to shrink/grow */
+  text-align: center;
+  font-size: 14px;
+}
     /* Navbar */
     .navbar {
       background: #f8f8f8;
@@ -129,16 +140,45 @@
     .show-btn:hover {
       background: #0d4473;
     }
-    .footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      font-size: 13px;
-    }
+    /* Mobile adjustments */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .header img {
+    margin-bottom: 10px;
+  }
+
+  .header-text h1 {
+    font-size: 18px;
+  }
+
+  .navbar a {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .content, .card, .login-box, .contact-box, .container {
+    width: 95% !important;
+    max-width: 100% !important;
+    margin: 10px auto;
+    padding: 15px;
+  }
+
+  .links {
+    grid-template-columns: 1fr; /* stack links instead of side by side */
+  }
+
+  table {
+    font-size: 12px;
+    display: block;
+    overflow-x: auto; /* make wide tables scrollable */
+  }
+}
+
   </style>
 </head>
 <body>
@@ -506,13 +546,9 @@
     }
   });
 </script>
-  <!-- Footer -->
-  <div class="footer">
-    Designed, Developed & Maintained by AU Computer Centre, Andhra University | Copyright © 2025 - All Rights Reserved.
-  </div>
+  
 </body>
 </html>
-
 
 
 
