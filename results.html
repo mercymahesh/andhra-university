@@ -11,18 +11,20 @@
       background: #f1f1f1;
     }
 
-    /* Header */
     .header {
-      background: #155fa0;
-      color: white;
-      display: flex;
-      align-items: center;
-      padding: 25px 200px;
-    }
-    .header img {
-      height: 60px;
-      margin-right: 0px;
-    }
+  background: #155fa0;
+  color: white;
+  display: flex;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+  align-items: center;
+  padding: 15px 20px; /* smaller padding */
+}
+
+.header img {
+  height: 50px;
+  margin-right: 10px;
+}
+
     .header-text {
       flex: 1;
     }
@@ -39,6 +41,16 @@
 
     /* Navbar */
     .navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.navbar a {
+  flex: 1 1 auto;  /* allow links to shrink/grow */
+  text-align: center;
+  font-size: 14px;
+}
+.navbar {
       background: #f8f8f8;
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
@@ -52,6 +64,7 @@
       font-weight: bold;
       border-right: 1px solid #ccc;
     }
+
     .navbar a:last-child {
       border-right: none;
     }
@@ -139,6 +152,76 @@
       width: 100%;
       font-size: 13px;
     }
+    /* Mobile adjustments */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .header img {
+    margin-bottom: 10px;
+  }
+
+  .header-text h1 {
+    font-size: 18px;
+  }
+
+  .navbar a {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .content, .card, .login-box, .contact-box, .container {
+    width: 95% !important;
+    max-width: 100% !important;
+    margin: 10px auto;
+    padding: 15px;
+  }
+
+  .links {
+    grid-template-columns: 1fr; /* stack links instead of side by side */
+  }
+
+  table {
+    font-size: 12px;
+    display: block;
+    overflow-x: auto; /* make wide tables scrollable */
+  }
+}
+   /* Compact table styles */
+.results, table {
+  width: 95%;              /* slightly smaller than full width */
+  margin: 10px auto;
+  font-size: 13px;         /* smaller text */
+  border-collapse: collapse;
+}
+
+.results th, .results td,
+table th, table td {
+  padding: 6px 8px;        /* reduce padding */
+}
+
+@media (max-width: 768px) {
+  .results, table {
+    width: 100%;
+    font-size: 12px;       /* even smaller font on phones */
+  }
+
+  .results th, .results td,
+  table th, table td {
+    padding: 5px;
+  }
+
+  /* Allow horizontal scroll if needed */
+  .results, table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -512,4 +595,3 @@
   </div>
 </body>
 </html>
-
