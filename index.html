@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AU EMS - Andhra University</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+    }
+
+    /* Header */
+    .header {
+  background: #155fa0;
+  color: white;
+  display: flex;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+  align-items: center;
+  padding: 15px 20px; /* smaller padding */
+}
+
+.header img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+    .header-text {
+      flex: 1;
+    }
+    .header-text h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+    .header-text small {
+      font-size: 12px;
+    }
+    .header-right {
+      font-size: 14px;
+    }
+
+    /* Navbar */
+    .navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.navbar a {
+  flex: 1 1 auto;  /* allow links to shrink/grow */
+  text-align: center;
+  font-size: 14px;
+}
+.navbar {
+      background: #f8f8f8;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+    }
+    .navbar a {
+      display: inline-block;
+      padding: 10px 18px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      border-right: 1px solid #ccc;
+    }
+
+    .navbar a:last-child {
+      border-right: none;
+    }
+    .navbar a:hover {
+      background: #ddd;
+    }
+
+    /* Note */
+    .note {
+      text-align: center;
+      margin: 15px 0;
+      color: green;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* Buttons */
+    .btn-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-block;
+      margin: 8px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    /* Table */
+    .results {
+      width: 80%;
+      margin: 20px auto;
+      background: white;
+      border-collapse: collapse;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      display: none; /* hidden by default */
+    }
+    .results th, .results td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      font-size: 14px;
+    }
+    .results th {
+      background: #155fa0;
+      color: white;
+      text-align: center;
+    }
+    .results td:last-child {
+      text-align: center;
+    }
+    .show-btn {
+      background: #155fa0;
+      color: white;
+      border: none;
+      padding: 5px 12px;
+      cursor: pointer;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+    .show-btn:hover {
+      background: #0d4473;
+    }
+    /* Card */
+    .card {
+      max-width: 800px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border-radius: 3px;
+    }
+    .card h2 {
+      margin-top: 0;
+      color: #337ab7;
+      font-size: 20px;
+    }
+    .card p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #333;
+    }
+    .mandatory {
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 8px 15px;
+      margin-top: 15px;
+      text-decoration: none;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+    .btn-blue {
+      background: #337ab7;
+      color: #fff;
+    }
+    .btn-red {
+      background: #d9534f;
+      color: #fff;
+      float: right;
+    }
+
+    /* Footer */
+    .footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 13px;
+    }
+    /* Mobile adjustments */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .header img {
+    margin-bottom: 10px;
+  }
+
+  .header-text h1 {
+    font-size: 18px;
+  }
+
+  .navbar a {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .content, .card, .login-box, .contact-box, .container {
+    width: 95% !important;
+    max-width: 100% !important;
+    margin: 10px auto;
+    padding: 15px;
+  }
+
+  .links {
+    grid-template-columns: 1fr; /* stack links instead of side by side */
+  }
+
+  table {
+    font-size: 12px;
+    display: block;
+    overflow-x: auto; /* make wide tables scrollable */
+  }
+}
+
+      </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <img src="https://andhrauni-ac.in/img/au-big-logo.png" alt="AU Logo">
+    <div class="header-text">
+      <h1>ఆంధ్ర విశ్వవిద్యాలయం<br>ANDHRA UNIVERSITY</h1>
+      <small>Accredited by NAAC with A++ Grade & Score: 3.74</small>
+    </div>
+    <div class="header-right">
+      <strong>AU EMS</strong><br>
+      ☎ 0891 - 284 4091
+    </div>
+  </div>
+    
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="index.html">SERVICES</a>
+    <a href="results.html">RESULTS</a>
+    <a href="pg-login.html" class="active">PG LOGIN</a>
+    <a href="ug-login.html">UG LOGIN</a>
+    <a href="revaluation.html">REVALUATION</a>
+    <a href="challan-payment.html">CHALLAN PAYMENT</a>
+    <a href="tuition-fee.html">TUITION FEE PAYMENT</a>
+    <a href="contact.html">CONTACT US</a>
+  </div>
+   <!-- Services Card -->
+  <div class="card">
+    <h2>University Services</h2>
+    <a href="#" class="btn btn-red">Admin Login 🔒</a>
+    <p>
+      The Candidates who wish to apply for Original Degree Certificates, Provisional Certificates, 
+      Individual Marks Memos, Consolidated Marks Memos, Migration Certificate, Rank Certificates, 
+      Revaluation Marks Memos, Genuineness Certificates and other relevant Certificates from 
+      Andhra University shall apply by paying the prescribed fees through Online mode for Undergraduate, 
+      Postgraduate and Professional Courses from below link.
+    </p>
+    <p class="mandatory">
+      Mandatory: Maintain high speed internet connection while applying for certificates. 
+      slow internet connection may responsible for transaction failure.
+    </p>
+    <a href="#" class="btn btn-blue">Apply Now ➜</a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Designed, Developed &amp; Maintained by AU Computer Centre, Andhra University | 
+    Copyright © 2025 - All Rights Reserved.
+  </div>
+
+  </body>
+</html>

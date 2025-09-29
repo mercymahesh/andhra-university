@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AU EMS - Andhra University</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+    }
+
+    /* Header */
+    .header {
+  background: #155fa0;
+  color: white;
+  display: flex;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+  align-items: center;
+  padding: 15px 20px; /* smaller padding */
+}
+
+.header img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+    .header-text {
+      flex: 1;
+    }
+    .header-text h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+    .header-text small {
+      font-size: 12px;
+    }
+    .header-right {
+      font-size: 14px;
+    }
+
+    /* Navbar */
+    .navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.navbar a {
+  flex: 1 1 auto;  /* allow links to shrink/grow */
+  text-align: center;
+  font-size: 14px;
+}
+.navbar {
+      background: #f8f8f8;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+    }
+    .navbar a {
+      display: inline-block;
+      padding: 10px 18px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      border-right: 1px solid #ccc;
+    }
+
+    .navbar a:last-child {
+      border-right: none;
+    }
+    .navbar a:hover {
+      background: #ddd;
+    }
+
+    .content {
+      max-width: 950px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .content h2 {
+      background: #e6e6e6;
+      padding: 10px;
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .links a {
+      display: block;
+      text-decoration: none;
+      color: white;
+      padding: 12px;
+      border-radius: 3px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .blue { background: #007bff; }
+    .green { background: #28a745; }
+    .red { background: #dc3545; }
+    .orange { background: #ff9800; }
+
+    .links a:hover {
+      opacity: 0.9;
+    }
+
+    .side-info {
+      margin-top: 20px;
+    }
+
+    .side-info h3 {
+      background: #d9edf7;
+      padding: 8px;
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .side-info ul {
+      list-style: none;
+      padding: 10px;
+      margin: 0;
+    }
+
+    .side-info ul li {
+      margin: 6px 0;
+      color: #155fa0;
+      cursor: pointer;
+    }
+    .footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 13px;
+    }
+    /* Mobile adjustments */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .header img {
+    margin-bottom: 10px;
+  }
+
+  .header-text h1 {
+    font-size: 18px;
+  }
+
+  .navbar a {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .content, .card, .login-box, .contact-box, .container {
+    width: 95% !important;
+    max-width: 100% !important;
+    margin: 10px auto;
+    padding: 15px;
+  }
+
+  .links {
+    grid-template-columns: 1fr; /* stack links instead of side by side */
+  }
+
+  table {
+    font-size: 12px;
+    display: block;
+    overflow-x: auto; /* make wide tables scrollable */
+  }
+}
+
+      </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <img src="https://andhrauni-ac.in/img/au-big-logo.png" alt="AU Logo">
+    <div class="header-text">
+      <h1>ఆంధ్ర విశ్వవిద్యాలయం<br>ANDHRA UNIVERSITY</h1>
+      <small>Accredited by NAAC with A++ Grade & Score: 3.74</small>
+    </div>
+    <div class="header-right">
+      <strong>AU EMS</strong><br>
+      ☎ 0891 - 284 4091
+    </div>
+  </div>
+    
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="index.html">SERVICES</a>
+    <a href="results.html">RESULTS</a>
+    <a href="pg-login.html" class="active">PG LOGIN</a>
+    <a href="ug-login.html">UG LOGIN</a>
+    <a href="revaluation.html">REVALUATION</a>
+    <a href="challan-payment.html">CHALLAN PAYMENT</a>
+    <a href="tuition-fee.html">TUITION FEE PAYMENT</a>
+    <a href="contact.html">CONTACT US</a>
+  </div>
+  <!-- Content -->
+  <div class="content">
+    <h2>ONLINE TUITION FEE PAYMENT LINKS</h2>
+
+    <div class="links">
+      <a href="#" class="blue">💳 Tuition Fee Payment for College of Engineering</a>
+      <a href="#" class="blue">💳 Tuition Fee Payment for AU College of Engineering for Women</a>
+      <a href="#" class="green">💳 Tuition Fee Payment for College of Arts and Science</a>
+      <a href="#" class="green">💳 Tuition Fee Payment for DR. B R Ambedkar Law College</a>
+      <a href="#" class="red">💳 Tuition Fee Payment for AU International Students</a>
+      <a href="#" class="green">💳 Tuition Fee Payment for A U TDR-HUB</a>
+      <a href="#" class="green">💳 Tuition Fee Payment for 1st Year (For all Colleges)</a>
+      <a href="#" class="green">💳 Tuition Fee Payment for Research Scholars</a>
+      <a href="#" class="orange">💳 Tuition Fee Payment for College of Pharmaceutical Sciences</a>
+    </div>
+
+    <div class="side-info">
+      <h3>Fee Payment Help</h3>
+      <ul>
+        <li>➡ Print/Download Tuition Fees Receipt</li>
+        <li>➡ Research Scholars Payment Status</li>
+        <li>➡ Refund & Cancellation Policy</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer">
+    Designed, Developed & Maintained by AU Computer Centre, Andhra University | Copyright © 2025 - All Rights Reserved.
+  </div>
+  </body>
+</html>

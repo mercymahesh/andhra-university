@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AU EMS - Andhra University</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+    }
+
+    /* Header */
+    .header {
+  background: #155fa0;
+  color: white;
+  display: flex;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+  align-items: center;
+  padding: 15px 20px; /* smaller padding */
+}
+
+.header img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+    .header-text {
+      flex: 1;
+    }
+    .header-text h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+    .header-text small {
+      font-size: 12px;
+    }
+    .header-right {
+      font-size: 14px;
+    }
+
+    /* Navbar */
+    .navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.navbar a {
+  flex: 1 1 auto;  /* allow links to shrink/grow */
+  text-align: center;
+  font-size: 14px;
+}
+.navbar {
+      background: #f8f8f8;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+    }
+    .navbar a {
+      display: inline-block;
+      padding: 10px 18px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      border-right: 1px solid #ccc;
+    }
+
+    .navbar a:last-child {
+      border-right: none;
+    }
+    .navbar a:hover {
+      background: #ddd;
+    }
+
+    /* Note */
+    .note {
+      text-align: center;
+      margin: 15px 0;
+      color: green;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* Buttons */
+    .btn-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-block;
+      margin: 8px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    /* Container */
+    .container {
+      width: 80%;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .section-title {
+      background: #f5f5f5;
+      padding: 10px;
+      font-weight: bold;
+      border-left: 4px solid #1a73e8;
+      margin-bottom: 15px;
+    }
+
+    /* Form */
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group input {
+      width: 250px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .submit-btn {
+      background: #1a73e8;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background: #155ab6;
+    }
+
+    /* Side notes */
+    .notes {
+      margin-top: 10px;
+    }
+    .notes .important {
+      color: red;
+      font-size: 14px;
+    }
+    .notes .help {
+      background: #e8f0fe;
+      padding: 8px;
+      margin-top: 5px;
+      border-left: 3px solid #1a73e8;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background: #f5f5f5;
+    }
+    tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    .footer-note {
+      margin-top: 10px;
+      text-align: center;
+      color: red;
+      font-weight: bold;
+    }
+  .footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 13px;
+    }
+    /* Mobile adjustments */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .header img {
+    margin-bottom: 10px;
+  }
+
+  .header-text h1 {
+    font-size: 18px;
+  }
+
+  .navbar a {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .content, .card, .login-box, .contact-box, .container {
+    width: 95% !important;
+    max-width: 100% !important;
+    margin: 10px auto;
+    padding: 15px;
+  }
+
+  .links {
+    grid-template-columns: 1fr; /* stack links instead of side by side */
+  }
+
+  table {
+    font-size: 12px;
+    display: block;
+    overflow-x: auto; /* make wide tables scrollable */
+  }
+}
+    /* Compact table styles */
+.results, table {
+  width: 95%;              /* slightly smaller than full width */
+  margin: 10px auto;
+  font-size: 13px;         /* smaller text */
+  border-collapse: collapse;
+}
+
+.results th, .results td,
+table th, table td {
+  padding: 6px 8px;        /* reduce padding */
+}
+
+@media (max-width: 768px) {
+  .results, table {
+    width: 100%;
+    font-size: 12px;       /* even smaller font on phones */
+  }
+
+  .results th, .results td,
+  table th, table td {
+    padding: 5px;
+  }
+
+  /* Allow horizontal scroll if needed */
+  .results, table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <img src="https://andhrauni-ac.in/img/au-big-logo.png" alt="AU Logo">
+    <div class="header-text">
+      <h1>ఆంధ్ర విశ్వవిద్యాలయం<br>ANDHRA UNIVERSITY</h1>
+      <small>Accredited by NAAC with A++ Grade & Score: 3.74</small>
+    </div>
+    <div class="header-right">
+      <strong>AU EMS</strong><br>
+      ☎ 0891 - 284 4091
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+  <a href="index.html">SERVICES</a>
+  <a href="results.html">RESULTS</a>
+  <a href="pg-login.html">PG LOGIN</a>
+  <a href="ug-login.html">UG LOGIN</a>
+  <a href="revaluation.html">REVALUATION</a>
+  <a href="challan-payment.html">CHALLAN PAYMENT</a>
+  <a href="tuition-fee.html">TUITION FEE PAYMENT</a>
+  <a href="contact.html">CONTACT US</a>
+</div>
+
+  <!-- Container -->
+  <div class="container">
+    <div class="section-title">📝 Revaluation Application Form</div>
+
+    <div class="form-group">
+      <label>Registration Number</label><br>
+      <input type="text" id="regNumber" placeholder="Enter Registration Number">
+    </div>
+
+    <div class="form-group">
+      <label>Security Code</label><br>
+      <canvas id="captchaCanvas" width="120" height="40" style="border:1px solid #ccc;"></canvas>
+      <input type="text" id="captchaInput" placeholder="Enter Security Code">
+    </div>
+
+    <button class="submit-btn" onclick="validateForm()">Submit</button>
+
+    <!-- Notes -->
+    <div class="notes">
+      <div class="help">
+        <p>➡ Help</p>
+        <p><a href="#">Download Receipt</a></p>
+        <p><a href="#">Refund & Cancellation Policy</a></p>
+        <p><a href="#">Privacy Policy</a></p>
+      </div>
+      <p class="important">⚠ Revaluation is only for theory subjects. Practicals are not eligible.</p>
+      <p class="important">⚠ Specialization selection not required for integrated courses (B.Tech + M.Tech).</p>
+    </div>
+
+    <!-- Courses Table -->
+    <div class="section-title" style="border-left-color: green; color: green;">✔ Revaluation for the following courses are currently open.</div>
+    <table>
+      <tr>
+        <th>SNo</th>
+        <th>Course</th>
+        <th>Semester</th>
+        <th>Last Date</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>B.Ed (Regular) - 2 Years</td>
+        <td>1-2</td>
+        <td>2025-10-11</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>B.Arch - Bachelor of Architecture</td>
+        <td>1-1</td>
+        <td>2025-10-02</td>
+      </tr>
+    </table>
+
+    <div class="footer-note">
+      Online Revaluation is only for above Courses. For queries contact Computer Centre (AUCC), Andhra University.
+    </div>
+  </div>
+
+  <script>
+    // Captcha Generator
+    function generateCaptcha() {
+      let canvas = document.getElementById("captchaCanvas");
+      let ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.font = "20px Arial";
+      let chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      let captcha = "";
+      for (let i = 0; i < 6; i++) {
+        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      ctx.fillText(captcha, 10, 25);
+      return captcha;
+    }
+
+    let captchaCode = generateCaptcha();
+
+    function validateForm() {
+      let regNumber = document.getElementById("regNumber").value;
+      let captchaInput = document.getElementById("captchaInput").value;
+
+      if (regNumber.trim() === "") {
+        alert("Please enter Registration Number");
+        return;
+      }
+      if (captchaInput.trim() === "") {
+        alert("Please enter Security Code");
+        return;
+      }
+      if (captchaInput !== captchaCode) {
+        alert("Mismatch in Security Code. Generating new code.");
+        captchaCode = generateCaptcha();
+        return;
+      }
+      if (regNumber !== "50928972014") {
+        alert("Invalid Registration Number.");
+        return;
+      }
+      alert("Form submitted successfully!");
+    }
+  </script>
+  <!-- Footer -->
+  <div class="footer">
+    Designed, Developed & Maintained by AU Computer Centre, Andhra University | Copyright © 2025 - All Rights Reserved.
+  </div>
+</body>
+</html>

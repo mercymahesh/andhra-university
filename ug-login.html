@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AU EMS - Andhra University</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+    }
+
+    .header {
+  background: #155fa0;
+  color: white;
+  display: flex;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+  align-items: center;
+  padding: 15px 20px; /* smaller padding */
+}
+
+.header img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+    .header-text {
+      flex: 1;
+    }
+    .header-text h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+    .header-text small {
+      font-size: 12px;
+    }
+    .header-right {
+      font-size: 14px;
+    }
+
+    /* Navbar */
+    .navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.navbar a {
+  flex: 1 1 auto;  /* allow links to shrink/grow */
+  text-align: center;
+  font-size: 14px;
+}
+.navbar {
+      background: #f8f8f8;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+    }
+    .navbar a {
+      display: inline-block;
+      padding: 10px 18px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      border-right: 1px solid #ccc;
+    }
+
+    .navbar a:last-child {
+      border-right: none;
+    }
+    .navbar a:hover {
+      background: #ddd;
+    }
+
+    /* Note */
+    .note {
+      text-align: center;
+      margin: 15px 0;
+      color: green;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* Buttons */
+    .btn-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-block;
+      margin: 8px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    /* Table */
+    .results {
+      width: 80%;
+      margin: 20px auto;
+      background: white;
+      border-collapse: collapse;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      display: none; /* hidden by default */
+    }
+    .results th, .results td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      font-size: 14px;
+    }
+    .results th {
+      background: #155fa0;
+      color: white;
+      text-align: center;
+    }
+    .results td:last-child {
+      text-align: center;
+    }
+    .show-btn {
+      background: #155fa0;
+      color: white;
+      border: none;
+      padding: 5px 12px;
+      cursor: pointer;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+    .show-btn:hover {
+      background: #0d4473;
+    }
+    /* Layout */
+    .container {
+      display: flex;
+      justify-content: center;
+      margin: 30px auto;
+      max-width: 1100px;
+      gap: 20px;
+    }
+
+    /* Notifications */
+    .notifications {
+      background: white;
+      padding: 15px;
+      flex: 1;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      overflow-y: auto;
+      max-height: 400px;
+    }
+    .notifications h3 {
+      margin: 0 0 10px;
+      padding: 10px;
+      background: #e6f2ff;
+      border-bottom: 1px solid #ccc;
+      font-size: 16px;
+    }
+    .notifications p {
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    /* Login Card */
+    .login-box {
+      background: white;
+      width: 380px;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #155fa0;
+    }
+    .login-box label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    /* Captcha */
+    .captcha-box {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .captcha {
+      font-weight: bold;
+      font-size: 18px;
+      background: #f4f4f4;
+      border: 1px dashed #aaa;
+      padding: 10px;
+      width: 100px;
+      text-align: center;
+      margin-right: 10px;
+      user-select: none;
+    }
+    .refresh-btn {
+      cursor: pointer;
+      background: #155fa0;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background: #155fa0;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .login-btn:hover {
+      opacity: 0.9;
+    }
+
+    .forgot {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .forgot a {
+      color: #155fa0;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 13px;
+    }
+    /* Mobile adjustments */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .header img {
+    margin-bottom: 10px;
+  }
+
+  .header-text h1 {
+    font-size: 18px;
+  }
+
+  .navbar a {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .content, .card, .login-box, .contact-box, .container {
+    width: 95% !important;
+    max-width: 100% !important;
+    margin: 10px auto;
+    padding: 15px;
+  }
+
+  .links {
+    grid-template-columns: 1fr; /* stack links instead of side by side */
+  }
+
+  table {
+    font-size: 12px;
+    display: block;
+    overflow-x: auto; /* make wide tables scrollable */
+  }
+}
+  </style>
+</head>
+<body>
+  
+  <!-- Header -->
+  <div class="header">
+    <img src="https://andhrauni-ac.in/img/au-big-logo.png" alt="AU Logo">
+    <div class="header-text">
+      <h1>ఆంధ్ర విశ్వవిద్యాలయం<br>ANDHRA UNIVERSITY</h1>
+      <small>Accredited by NAAC with A++ Grade & Score: 3.74</small>
+    </div>
+    <div class="header-right">
+      <strong>AU EMS</strong><br>
+      ☎ 0891 - 284 4091
+    </div>
+  </div>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="index.html">SERVICES</a>
+    <a href="results.html">RESULTS</a>
+    <a href="pg-login.html" class="active">PG LOGIN</a>
+    <a href="ug-login.html">UG LOGIN</a>
+    <a href="revaluation.html">REVALUATION</a>
+    <a href="challan-payment.html">CHALLAN PAYMENT</a>
+    <a href="tuition-fee.html">TUITION FEE PAYMENT</a>
+    <a href="contact.html">CONTACT US</a>
+  </div>
+
+  <!-- Content -->
+  <div class="container">
+    <!-- Notifications -->
+    <div class="notifications">
+      <h3>Notifications</h3>
+      <p>📢 UG III SEMESTER - Regular (2024 AB) and Supplementary (2020-23 AB)</p>
+      <p>📢 V SEMESTER - Regular (2023 AB) and Supplementary (2020-22 AB)</p>
+      <p style="color:green;">Without Fine Last Date: (17-09-2025)</p>
+      <p style="color:red;">With Fine 2000/- Last Date: (22-09-2025)</p>
+      <p style="color:red;">With Fine + Additional 100/- Per Day: (25-09-2025)</p>
+      <p style="color:green;">Challan Payment Last Date: (26-09-2025)</p>
+    </div>
+
+    <!-- Login Box -->
+    <div class="login-box">
+      <h2>ANDHRA UNIVERSITY <br> UG College Login</h2>
+
+      <label>Username</label>
+      <input type="text" placeholder="Enter Username">
+
+      <label>Password</label>
+      <input type="password" placeholder="Enter Password">
+
+      <label>Verification Code</label>
+      <div class="captcha-box">
+        <div class="captcha" id="captcha"></div>
+        <button class="refresh-btn" onclick="generateCaptcha()">⟳</button>
+      </div>
+      <input type="text" id="captcha-input" placeholder="Enter Verification Code">
+
+      <button class="login-btn" onclick="validateCaptcha()">Login</button>
+      <div class="forgot"><a href="#">Forgot Password?</a></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Copyright © 2025 Andhra University. Developed by D Base Solutions Pvt. Ltd. |
+    For Support: 9394322301 / 9394322304
+  </div>
+
+  <!-- JS -->
+  <script>
+    function generateCaptcha() {
+      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+      let captcha = "";
+      for (let i = 0; i < 6; i++) {
+        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      document.getElementById("captcha").textContent = captcha;
+    }
+
+    function validateCaptcha() {
+      const entered = document.getElementById("captcha-input").value.trim();
+      const actual = document.getElementById("captcha").textContent.trim();
+      if (entered === actual) {
+        alert("Login Successful ✅");
+      } else {
+        alert("❌ Invalid Captcha. Please try again.");
+        generateCaptcha();
+      }
+    }
+
+    // Load first captcha
+    window.onload = generateCaptcha;
+  </script>
+</body>
+</html>
+
+    
+
+  
