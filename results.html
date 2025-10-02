@@ -442,74 +442,69 @@
 
   <!-- JS -->
   <script>
-    let selectedExam = "";
+  let selectedExam = "";
 
-    function showResults(sectionId) {
-      document.querySelectorAll(".results").forEach(t => t.style.display = "none");
-      document.getElementById(sectionId).style.display = "table";
-    }
-
-    function openResultForm(examName) {
-      selectedExam = examName.trim();
-      document.getElementById("examTitle").innerText = examName;
-      document.querySelectorAll(".results").forEach(t => t.style.display = "none");
-      document.querySelector(".btn-container").style.display = "none";
-      document.querySelector(".note").style.display = "none";
-      document.getElementById("formPage").style.display = "block";
-      generateCaptcha();
-    }
-
-    // Captcha
-    function generateCaptcha() {
-      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-      let captcha = "";
-      for (let i = 0; i < 6; i++) {
-        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      document.getElementById("captcha").textContent = captcha;
-    }
-
-    function validateCaptcha() {
-  let regNo = document.getElementById("regNo").value.trim();
-  let entered = document.getElementById("captchaInput").value.trim();
-  let actual = document.getElementById("captcha").textContent.trim();
-  let errorBox = document.getElementById("errorBox");
-  errorBox.innerText = "";
-
-  if (regNo === "") {
-    errorBox.innerText = "⚠️ Please enter Registration Number";
-    return;
+  function showResults(sectionId) {
+    document.querySelectorAll(".results").forEach(t => t.style.display = "none");
+    document.getElementById(sectionId).style.display = "table";
   }
-  if (entered === "") {
-    errorBox.innerText = "⚠️ Please enter Security Code";
-    return;
-  }
-  if (entered !== actual) {
-    errorBox.innerText = "❌ Invalid Security Code";
+
+  function openResultForm(examName) {
+    selectedExam = examName.trim();
+    document.getElementById("examTitle").innerText = examName;
+    document.querySelectorAll(".results").forEach(t => t.style.display = "none");
+    document.querySelector(".btn-container").style.display = "none";
+    document.querySelector(".note").style.display = "none";
+    document.getElementById("formPage").style.display = "block";
     generateCaptcha();
-    return;
   }
 
-  // ✅ Redirect to marksheet.html on success
-  if (selectedExam.includes("B.E.EEE EIGHTH SEMESTER") && regNo === "50928972014") {
-    window.location.href = "marksheet.html";
-  } else {
-    errorBox.innerText = "❌ Invalid Registration Number";
+  // Captcha
+  function generateCaptcha() {
+    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    let captcha = "";
+    for (let i = 0; i < 6; i++) {
+      captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    document.getElementById("captcha").textContent = captcha;
   }
-}
 
-      // Example validation
-      if (selectedExam.includes("B.E.EEE EIGHTH SEMESTER") && regNo === "50928972014") {
-        alert("✅ Access Granted");
-      } else {
-        errorBox.innerText = "❌ Invalid Registration Number";
-      }
-    
+  function validateCaptcha() {
+    let regNo = document.getElementById("regNo").value.trim();
+    let entered = document.getElementById("captchaInput").value.trim();
+    let actual = document.getElementById("captcha").textContent.trim();
+    let errorBox = document.getElementById("errorBox");
+    errorBox.innerText = "";
 
-    window.onload = generateCaptcha;
-  </script>
-</body>
-</html>
+    if (regNo === "") {
+      errorBox.innerText = "⚠️ Please enter Registration Number";
+      return;
+    }
+    if (entered === "") {
+      errorBox.innerText = "⚠️ Please enter Security Code";
+      return;
+    }
+    if (entered !== actual) {
+      errorBox.innerText = "❌ Invalid Security Code";
+      generateCaptcha();
+      return;
+    }
+
+    // ✅ Redirect logic
+    if (selectedExam.includes("B.E.EEE EIGHTH SEMESTER") && regNo === "50928972014") {
+      alert("✅ Access Granted");
+      window.location.href = "marksheet.html";
+    } else if (selectedExam.includes("B.E.EEE EIGHTH SEMESTER") && regNo === "50928972015") {
+      alert("✅ Access Granted");
+      window.location.href = "vamshimarksheet.html";
+    } else {
+      errorBox.innerText = "❌ Invalid Registration Number";
+    }
+  }
+
+  window.onload = generateCaptcha;
+</script>
+
 
 
 
